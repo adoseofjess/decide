@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html ng-app="decide">
+	<head>
+		<script type="text/javascript" src="angular.min.js"></script>
+		<script type="text/javascript" src="app.js"></script>
+		<link rel="stylesheet" type="text/css" href="bootstrap.min.css"/>
+		<link rel="stylesheet" type="text/css" href="custom.css"/>
+	</head>
+	<body>
+		<div class="wrapper" ng-controller="ProsConsController">
+			<div class="jumbotron">
+				<div class="container text-center">
+					<h3>I'm choosing between:</h3>
+					a.<textarea class="question" type="text" ng-model="choiceOne"></textarea>
+					b.<textarea class="question" type="text" ng-model="choiceTwo"></textarea>
+				</div>
+			</div>
+			<div class="container before-footer">
+				<div class="row">
+					<div class="col-xs-6 text-center pros">
+						<h3>Reasons for {{choiceOne}}</h3>
+						<div ng-repeat="pro in prosOrCons | filter:{type: 'pro'}">
+							<li class="pro">{{pro.input}}</li>
+						</div>
+					</div>
+					<div class="col-xs-6 text-center cons">
+						<h3>Reasons for {{choiceTwo}}</h3>
+						<div ng-repeat="con in prosOrCons | filter:{type: 'con'}">
+							<li class="con">{{con.input}}</li>
+						</div>
+					</div>
+				</div>
+				<div class="submit">
+					<div class="col-xs-12 text-center" ng-model="reason">
+						<div class="reason weight" ng-model="reason.weight"></div>
+						<button type="button" class="btn btn-default btn-sm" ng-init="calculate(reason.type, reason.weight)" ng-click="add(reason, 'pro')">a</button>
+						<input class="reason-input" ng-model="reason.input"></input>
+						<button type="button" class="btn btn-default btn-sm" ng-init="calculate(reason.type, reason.weight)" ng-click="add(reason, 'con')">b</button>
+
+						<!-- <div class="declaration">Weight it!</div> -->
+						<!-- <button type="button" class="btn btn-default btn-sm" ng-init="calculate(reason.type, reason.weight)" ng-click="add(reason, 'pro')"><span class="glyphicon glyphicon-plus"></span></button> -->
+						<!-- <select ng-model="reason.weight" ng-options="weight.description for weight in weights"></select> -->
+						<!-- <button type="button" class="btn btn-default btn-sm" ng-init="calculate(reason.type, reason.weight)" ng-click="add(reason, 'con')"><span class="glyphicon glyphicon-minus"></span></button> -->
+					</div>
+				</div>
+			</div>
+			<div class="footer text-center" ng-model="weighted"><span class="big">What should I choose? {{answer}}</span></div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,65 @@
+html, body {
+	height: 100%;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+.wrapper {
+	position: relative;
+	height: 100%;
+	width: 100%;
+}
+
+.jumbotron {
+	margin-bottom: 0px;
+	padding-top: 0px;
+}
+
+textarea.question {
+	height: 40px;
+	width: 300px;
+	display: inline-block;
+}
+
+textarea.choiceOne {
+}
+
+textarea.choiceTwo {
+	
+}
+
+.footer {
+	/*position: absolute;*/
+	/*bottom: 0;*/
+	/*left: 0;*/
+	height: 50px;
+	width: 100%;
+	line-height: 50px;
+}
+
+.before-footer {
+	padding-bottom: 20px;
+}
+
+.declaration {
+	display: block;
+	padding: 10px 0 0 0;
+}
+
+.text-center {
+}
+
+.reason-input {
+	width: 500px;
+	display: inline-block;
+	margin: auto;
+}
+
+.submit {
+	margin-top: 50px;
+}
+
+.big {
+	font-size: 1.5em;
+}
